@@ -1,0 +1,13 @@
+<form action="/length" method="post">
+    <input type="text" name="value" placeholder="Enter value" required>
+    <select name="from">
+        <option value="meter">Meter</option>
+        <option value="kilometer">Kilometer</option>
+    </select>
+    <select name="to">
+        <option value="meter">Meter</option>
+        <option value="kilometer">Kilometer</option>
+    </select>
+    <button type="submit">Convert</button>
+</form>
+<p>Result: <%= result || '' %></p>
