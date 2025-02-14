@@ -4,7 +4,7 @@ import bodyParser from "body-parser";
 
 import lengthRoutes from "./routes/lengthRoutes";
 import weightRoutes from "./routes/weightRoutes";
-import tempratureRoutes from "./routes/tempratureRoutes";
+import tempratureRoutes from "./routes/temperatureRoutes";
 
 
 const app = express();

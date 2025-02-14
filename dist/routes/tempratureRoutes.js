@@ -6,6 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const tempratureController_1 = require("../controllers/tempratureController");
 const router = express_1.default.Router();
-router.get("/", tempratureController_1.convertTemprature);
-router.post("/", tempratureController_1.convertTemprature);
+router.get("/convert", tempratureController_1.convertTemprature);
+router.post("/convert", tempratureController_1.convertTemprature);
 exports.default = router;
