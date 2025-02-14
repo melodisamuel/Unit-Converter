@@ -3,7 +3,7 @@ import { convertTemprature } from '../controllers/tempratureController';
 
 const router = express.Router();
 
-router.get("/", convertTemprature);
-router.post("/", convertTemprature);
+router.get("/convert", convertTemprature);
+router.post("/convert", convertTemprature);
 
 export default router;
