@@ -1,0 +1,26 @@
+<!-- src/views/temperature.ejs -->
+ <!DOCTYPE html>
+ <html lang="en">
+    <head>
+        <title>Temperature Converter</title>
+    </head>
+    <body>
+        <h2>Temperature Converter</h2>
+        <form method="POST">
+            <input type="number" name="value" placeholder="Enter value" required>
+            <select name="fromUnit">
+                <option value="celsius">celsius</option>
+                <option value="Fahrenheit">Fahrenheit</option>
+                <option value="Kelvin">Kelvin</option>
+            </select>
+            <span>to</span>
+            <select name="toUnit">
+                <option value="Celsius"></option>
+                <option value="Fahrenheit">Fahrenheit</option>
+                <option value="Kelvin">kelvin</option>
+            </select>
+            <button type="submit">Convert</button>
+        </form>
+        <h3>Result: <%= result %></h3>
+    </body>
+ </html>
