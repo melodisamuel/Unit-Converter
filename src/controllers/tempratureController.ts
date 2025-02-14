@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 
-export const convertTemprature = (req: Request, res: Response) => {
+export const convertTemperature = (req: Request, res: Response) => {
     if(req.method === 'POST') {
         const { value, fromUnit, toUnit } = req.body;
         const numericValue = parseFloat(value);

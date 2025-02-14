@@ -1,29 +1,30 @@
+<!-- src/views/weight.ejs -->
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Weight Converter</title>
-    </head>
-    <body>
-        <h2>Weight Converter</h2>
-        <form method="POST">
-            <input type="number" name="value" placeholder="Enter value" required>
-            <select name="fromUnit">
-                <option value="miligram">Milligram</option>
-                <option value="gram">Gram</option>
-                <option value="kilogram">Kilogram</option>
-                <option value="ounce">Ounce</option>
-                <option value="pound">Pound</option>
-            </select>
-            <span>to</span>
-            <select name="toUnit">
-                <option value="milligram">Milligram</option>
-                <option value="gram">Gram</option>
-                <option value="kilogram">Kilogram</option>
-                <option value="ounce">Ounce</option>
-                <option value="pound">Pound</option>
-            </select>
-            <button type="submit">Convert</button>
-        </form>
-        <h3>Result: <%= result %></h3>
-    </body>
+<head>
+    <title>Weight Converter</title>
+</head>
+<body>
+    <h2>Weight Converter</h2>
+    <form method="POST">
+        <input type="number" name="value" placeholder="Enter value" required>
+        <select name="fromUnit">
+            <option value="milligram">Milligram</option>
+            <option value="gram">Gram</option>
+            <option value="kilogram">Kilogram</option>
+            <option value="ounce">Ounce</option>
+            <option value="pound">Pound</option>
+        </select>
+        <span>to</span>
+        <select name="toUnit">
+            <option value="milligram">Milligram</option>
+            <option value="gram">Gram</option>
+            <option value="kilogram">Kilogram</option>
+            <option value="ounce">Ounce</option>
+            <option value="pound">Pound</option>
+        </select>
+        <button type="submit">Convert</button>
+    </form>
+    <h3>Result: <%= result %></h3>
+</body>
 </html>

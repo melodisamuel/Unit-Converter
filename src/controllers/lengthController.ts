@@ -1,60 +1,24 @@
-import { error } from 'console';
-import { Request, Response } from 'express';
-import { ParsedQs } from 'qs'
-
-
+import { Request, Response } from "express";
 
 export const convertLength = (req: Request, res: Response) => {
-    try {
-          // Extract query parameters and cast them as strings
-          const value = req.query.value as string;
-          const fromUnit = req.query.fromUnit as string;
-          const toUnit = req.query.toUnit as string;
-  
+    if (req.method === "GET") {
+        return res.render("length");
+    } else if (req.method === "POST") {
+        const { value, unitFrom, unitTo } = req.body;
+        let convertedValue: number | string = "Invalid Conversion";
 
-        if(!value || !fromUnit || !toUnit) {
-            return res.status(400).json({ error: "Missing required parameters: value."})
-        }
-
-        //Convert value to a number
-        const inputValue = parseFloat(value as string);
-        if(isNaN(inputValue)) {
-            return res.status(400).json({ error: 'Invalid value. Must be a number'})
-        }
-
-        // Define conversion factors based on meters (m)
-        const lengthUnits: Record<string, number> = {
-            milimeter: 0.001,
-            centimeter: 0.01,
-            meter: 1,
-            kilometer: 1000,
-            inch: 0.0254,
-            foot: 0.3048,
-            yard: 0.9144,
-            mile: 1609.34
+        const conversions: Record<string, Record<string, number>> = {
+            meters: { meters: 1, kilometers: 0.001, centimeters: 100, inches: 39.37, feet: 3.281 },
+            kilometers: { meters: 1000, kilometers: 1, centimeters: 100000, inches: 39370, feet: 3281 },
+            centimeters: { meters: 0.01, kilometers: 0.00001, centimeters: 1, inches: 0.3937, feet: 0.03281 },
+            inches: { meters: 0.0254, kilometers: 0.0000254, centimeters: 2.54, inches: 1, feet: 0.08333 },
+            feet: { meters: 0.3048, kilometers: 0.0003048, centimeters: 30.48, inches: 12, feet: 1 }
         };
 
-        // Validate if units exist
-        if(!lengthUnits[fromUnit] || !lengthUnits[toUnit]) {
-            return res.status(400).json({ error: "invalid unit. Use: millimeter, centimeter, meter, kilometer, inch, foot, yard, mile."});
+        if (conversions[unitFrom] && conversions[unitFrom][unitTo]) {
+            convertedValue = Number(value) * conversions[unitFrom][unitTo];
         }
 
-        const valueInMeters = inputValue * lengthUnits[fromUnit as string];
-
-        // Convert from meters to target unit
-        const convertedValue = valueInMeters / lengthUnits[toUnit as string];
-
-        // Send the response
-        return res.json({
-            originalValue: inputValue,
-            fromUnit,
-            toUnit,
-            convertedValue,
-
-        })
-
-        
-    } catch (error) {
-        return res.status(500).json({ error: "Internal server Error"})
+        return res.render("length", { convertedValue });
     }
 };

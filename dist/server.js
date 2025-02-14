@@ -8,7 +8,7 @@ const path_1 = __importDefault(require("path"));
 const body_parser_1 = __importDefault(require("body-parser"));
 const lengthRoutes_1 = __importDefault(require("./routes/lengthRoutes"));
 const weightRoutes_1 = __importDefault(require("./routes/weightRoutes"));
-const tempratureRoutes_1 = __importDefault(require("./routes/tempratureRoutes"));
+const temperatureRoutes_1 = __importDefault(require("./routes/temperatureRoutes"));
 const app = (0, express_1.default)();
 const PORT = 3000;
 // Middleware
@@ -19,7 +19,7 @@ app.set("view engine", "ejs");
 // Define Routes
 app.use("/length", lengthRoutes_1.default);
 app.use("/weight", weightRoutes_1.default);
-app.use("/temprature", tempratureRoutes_1.default);
+app.use("/temperature", temperatureRoutes_1.default);
 // Home Route
 app.get("/", (req, res) => {
     res.send("Welcome to the Unit Converter");

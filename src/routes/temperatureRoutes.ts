@@ -1,9 +1,9 @@
 import express from 'express';
-import { convertTemprature } from '../controllers/tempratureController';
+import { convertTemperature } from '../controllers/tempratureController';
 
 const router = express.Router();
 
-router.get("/convert", convertTemprature);
-router.post("/convert", convertTemprature);
+router.get("/convert", convertTemperature);
+router.post("/convert", convertTemperature);
 
 export default router;

@@ -4,7 +4,7 @@ import bodyParser from "body-parser";
 
 import lengthRoutes from "./routes/lengthRoutes";
 import weightRoutes from "./routes/weightRoutes";
-import tempratureRoutes from "./routes/temperatureRoutes";
+import temperatureRoutes from "./routes/temperatureRoutes";
 
 
 const app = express();
@@ -19,7 +19,7 @@ app.set("view engine", "ejs");
 // Define Routes
 app.use("/length", lengthRoutes);
 app.use("/weight", weightRoutes);
-app.use("/temprature", tempratureRoutes);
+app.use("/temperature", temperatureRoutes);
 
 // Home Route
 app.get("/", (req, res) => {

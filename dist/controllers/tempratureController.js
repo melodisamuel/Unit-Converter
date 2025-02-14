@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.convertTemprature = void 0;
-const convertTemprature = (req, res) => {
+exports.convertTemperature = void 0;
+const convertTemperature = (req, res) => {
     if (req.method === 'POST') {
         const { value, fromUnit, toUnit } = req.body;
         const numericValue = parseFloat(value);
@@ -34,4 +34,4 @@ const convertTemprature = (req, res) => {
     }
     res.render("temperature", { result: "" });
 };
-exports.convertTemprature = convertTemprature;
+exports.convertTemperature = convertTemperature;
