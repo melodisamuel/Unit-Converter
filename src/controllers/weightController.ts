@@ -26,5 +26,5 @@ export const convertWeight = (req: Request, res: Response) => {
         return res.render("weight", { result: `${value} ${fromUnit} = ${result.toFixed(2)} ${toUnit}` });
     }
 
-    res.render("../views/weight", { result: "" })
+    res.render("weight", { result: "" })
 };

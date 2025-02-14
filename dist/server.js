@@ -14,6 +14,7 @@ const PORT = 3000;
 // Middleware
 app.use(body_parser_1.default.urlencoded({ extended: true }));
 app.use(express_1.default.static(path_1.default.join(__dirname, "public")));
+app.set("views", path_1.default.join(__dirname, 'views'));
 app.set("view engine", "ejs");
 // Define Routes
 app.use("/length", lengthRoutes_1.default);
