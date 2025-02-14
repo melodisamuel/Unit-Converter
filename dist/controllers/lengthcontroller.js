@@ -2,8 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.convertLength = void 0;
 const convertLength = (req, res) => {
+    // let convertedValue: number | null = null;
     if (req.method === "GET") {
-        return res.render("length");
+        return res.render("length", { convertedValue: null });
     }
     else if (req.method === "POST") {
         const { value, unitFrom, unitTo } = req.body;

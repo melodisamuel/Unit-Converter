@@ -1,8 +1,10 @@
 import { Request, Response } from "express";
 
 export const convertLength = (req: Request, res: Response) => {
+    // let convertedValue: number | null = null;
+
     if (req.method === "GET") {
-        return res.render("length");
+        return res.render("length", { convertedValue: null });
     } else if (req.method === "POST") {
         const { value, unitFrom, unitTo } = req.body;
         let convertedValue: number | string = "Invalid Conversion";
